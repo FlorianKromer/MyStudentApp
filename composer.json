@@ -34,11 +34,11 @@
     "symfony/translation": "5.0.*",
     "symfony/twig-pack": "*",
     "symfony/validator": "5.0.*",
+    "symfony/apache-pack": "^1.0",
     "symfony/web-link": "5.0.*",
     "symfony/yaml": "5.0.*"
   },
   "require-dev": {
-    "symfony/apache-pack": "^1.0",
     "symfony/profiler-pack": "*",
     "doctrine/doctrine-fixtures-bundle": "^3.3",
     "friendsofphp/php-cs-fixer": "^2.16",
