@@ -17,7 +17,7 @@ services:
 matrix:
   fast_finish: true
   include:
-    - php: 7.3
+    - php: 7.4
 
 before_install:
   - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || phpenv config-rm xdebug.ini'
