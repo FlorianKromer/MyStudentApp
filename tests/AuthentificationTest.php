@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Tests;
 
-
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthentificationTest extends WebTestCase
 {
@@ -13,7 +13,7 @@ class AuthentificationTest extends WebTestCase
     {
         $this->client = static::createClient([], [
             'PHP_AUTH_USER' => 'admin',
-            'PHP_AUTH_PW'   => 'admin',
+            'PHP_AUTH_PW' => 'admin',
         ]);
         $this->client->followRedirects()
         ;
@@ -27,6 +27,4 @@ class AuthentificationTest extends WebTestCase
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertSame('EasyAdmin', $crawler->filter('a.logo')->first()->text());
     }
-
-    
 }

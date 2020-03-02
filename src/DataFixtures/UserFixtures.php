@@ -2,26 +2,28 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Faker;
-use App\Entity\User;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
     private $passwordEncoder;
+
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
-         $this->passwordEncoder = $passwordEncoder;
+        $this->passwordEncoder = $passwordEncoder;
     }
+
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create();
 
         //admin
         $user = new User();
-        $user->setUsername("admin");
+        $user->setUsername('admin');
         $user->setEmail($faker->email);
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
@@ -31,8 +33,8 @@ class UserFixtures extends Fixture
         $manager->persist($user);
 
         //random user
-        
-        for ($i=0; $i < 5; $i++) { 
+
+        for ($i = 0; $i < 5; ++$i) {
             $user = new User();
             $user->setUsername($faker->userName);
             $user->setEmail($faker->email);
@@ -40,15 +42,14 @@ class UserFixtures extends Fixture
                 $user,
                 'azerty'.$i
             ));
-            if ($i %2 == 0) {
+            if (0 == $i % 2) {
                 $user->setRoles(['ROLE_STUDENT']);
-            }
-            else{
+            } else {
                 $user->setRoles(['ROLE_TEACHER']);
             }
             $manager->persist($user);
         }
-        
+
         $manager->flush();
     }
 }

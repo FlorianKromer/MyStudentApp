@@ -39,7 +39,6 @@ class User implements UserInterface
      */
     private $password;
 
-    
     /**
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
@@ -48,9 +47,9 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->roles = array('ROLE_USER');
+        $this->roles = ['ROLE_USER'];
     }
-    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,7 +72,6 @@ class User implements UserInterface
         return $this;
     }
 
-    
     public function getEmail(): string
     {
         return (string) $this->email;
@@ -120,14 +118,15 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPlainPassword():string
+    public function getPlainPassword(): string
     {
-        return (string)$this->plainPassword;
+        return (string) $this->plainPassword;
     }
 
     public function setPlainPassword($plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+
         return $this;
     }
 
@@ -148,7 +147,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->username;
     }
