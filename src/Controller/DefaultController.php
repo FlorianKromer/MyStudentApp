@@ -2,15 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\User;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DefaultController extends AbstractController
@@ -34,7 +33,7 @@ class DefaultController extends AbstractController
         $application->setAutoExit(false);
 
         $input = new ArrayInput([
-            'command' => 'doctrine:database:create'
+            'command' => 'doctrine:database:create',
         ]);
         // You can use NullOutput() if you don't need the output
         $output = new BufferedOutput();
@@ -45,7 +44,6 @@ class DefaultController extends AbstractController
 
         // return new Response(""), if you used NullOutput()
         return new Response($content);
-
     }
 
     /**
@@ -59,7 +57,6 @@ class DefaultController extends AbstractController
         $input = new ArrayInput([
             'command' => 'doctrine:schema:update',
             '-f' => true,
-
         ]);
         // You can use NullOutput() if you don't need the output
         $output = new BufferedOutput();
@@ -70,7 +67,6 @@ class DefaultController extends AbstractController
 
         // return new Response(""), if you used NullOutput()
         return new Response($content);
-
     }
 
     /**
@@ -84,7 +80,6 @@ class DefaultController extends AbstractController
         $input = new ArrayInput([
             'command' => 'doctrine:schema:drop',
             '-f' => true,
-
         ]);
         // You can use NullOutput() if you don't need the output
         $output = new BufferedOutput();
@@ -95,7 +90,6 @@ class DefaultController extends AbstractController
 
         // return new Response(""), if you used NullOutput()
         return new Response($content);
-
     }
 
     /**
@@ -121,6 +115,5 @@ class DefaultController extends AbstractController
         $entityManager->flush();
 
         return new Response('New admin account with id '.$user->getId());
-
     }
 }
