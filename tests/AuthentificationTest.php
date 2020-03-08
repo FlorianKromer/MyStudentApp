@@ -15,8 +15,7 @@ class AuthentificationTest extends WebTestCase
             'PHP_AUTH_USER' => 'admin',
             'PHP_AUTH_PW' => 'admin',
         ]);
-        $this->client->followRedirects()
-        ;
+        $this->client->followRedirects();
     }
 
     public function testAdminDashboard()

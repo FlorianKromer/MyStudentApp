@@ -3,48 +3,39 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
+<!-- Home-Area -->
+<header class="home-area overlay" id="home_page">
     <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="row">
+            <div class="col-xs-12 hidden-sm col-md-5">
+                <figure class="mobile-image wow fadeInUp" data-wow-delay="0.2s">
+                    <img src="images/header-mobile.png" alt="">
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-7">
+                <div class="space-80 hidden-xs"></div>
+                <h1 class="wow fadeInUp" data-wow-delay="0.4s">Start your amazing stuff through appy.</h1>
+                <div class="space-20"></div>
+                <div class="desc wow fadeInUp" data-wow-delay="0.6s">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore
+                        et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
+                </div>
+                <div class="space-20"></div>
+                <a href="#" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i
+                        class="lnr lnr-download"></i>Download App</a>
+            </div>
         </div>
     </div>
-
-    <hr>
-
-    <footer>
-        <p>&copy; 2016 Company, Inc.</p>
-    </footer>
-</div> <!-- /container -->
-
+</header>
+<!-- Home-Area-End -->
+{% include "default/about.html.twig" %}
+{% include "default/progress.html.twig" %}
+{% include "default/video.html.twig" %}
+{% include "default/feature.html.twig" %}
+{% include "default/testimonial.html.twig" %}
+{% include "default/gallery.html.twig" %}
+{% include "default/how-to-use.html.twig" %}
+{% include "default/download.html.twig" %}
+{% include "default/price.html.twig" %}
+{% include "default/question.html.twig" %}
 {% endblock %}
